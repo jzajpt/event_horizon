@@ -1,7 +1,6 @@
 # encoding: utf-8
 
 require 'active_support/concern'
-require 'mongoid'
 require 'mongoid/timestamps'
 
 

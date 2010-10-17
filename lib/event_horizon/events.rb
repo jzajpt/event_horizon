@@ -1,6 +1,7 @@
 # encoding: utf-8
 
 require 'active_support/concern'
+require File.join(File.dirname(__FILE__), "../../app/models/event")
 
 module EventHorizon
 
@@ -44,11 +45,11 @@ module EventHorizon
         class_name = self._type || self.class.name
         user       = options[:by] || options[:user]
 
-        Event.create(:event_type    => event.to_s,
-                     :user_id       => user && user.id,
-                     :document_id   => self.id,
-                     :document_type => class_name,
-                     :params        => params)
+        ::Event.create(:event_type    => event.to_s,
+                       :user_id       => user && user.id,
+                       :document_id   => self.id,
+                       :document_type => class_name,
+                       :params        => params)
       end
 
       def call_event_callbacks_for(event)
