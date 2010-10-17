@@ -30,7 +30,7 @@ module EventHorizon
 
     module InstanceMethods
 
-      def fire(event, options = {})
+      def fire!(event, options = {})
         self.call_event_callbacks_for(event)
         self.create_event(event, options)
       end
