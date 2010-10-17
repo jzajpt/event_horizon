@@ -28,6 +28,8 @@ class Event
 
   # Public methods
 
+  # Since Mongoid doesn't have polymorphic association support define
+  # events associations this way...
   def document
     self.document_type.constantize.find(self.document_id)
   rescue ::Mongoid::Errors::DocumentNotFound

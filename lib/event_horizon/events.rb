@@ -31,6 +31,13 @@ module EventHorizon
 
     module InstanceMethods
 
+      # Since Mongoid doesn't have polymorphic association support define
+      # events associations this way...
+      def events
+        type = self._type || self.class.name
+        Event.where(:document_id => self.id, :document_type => type)
+      end
+
       def fire!(event, options = {})
         self.call_event_callbacks_for(event)
         self.create_event(event, options)
