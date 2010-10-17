@@ -6,7 +6,7 @@ begin
   Jeweler::Tasks.new do |gem|
     gem.name = "event_horizon"
     gem.summary = %Q{Simple plugin for logging events in Rails applications.}
-    gem.description = %Q{TODO: longer description of your gem}
+    gem.description = %Q{Simple plugin for logging events in Rails applications using Mongoid ODM.}
     gem.email = "jzajpt@blueberryapps.com"
     gem.homepage = "http://github.com/jzajpt/event_horizon"
     gem.authors = ["Jiri Zajpt"]

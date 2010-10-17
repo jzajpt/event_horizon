@@ -10,7 +10,7 @@ Gem::Specification.new do |s|
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Jiri Zajpt"]
   s.date = %q{2010-10-17}
-  s.description = %q{TODO: longer description of your gem}
+  s.description = %q{Simple plugin for logging events in Rails applications using Mongoid ODM.}
   s.email = %q{jzajpt@blueberryapps.com}
   s.extra_rdoc_files = [
     "LICENSE",
@@ -24,6 +24,7 @@ Gem::Specification.new do |s|
      "Rakefile",
      "VERSION",
      "app/models/event.rb",
+     "event_horizon.gemspec",
      "lib/event_horizon.rb",
      "lib/event_horizon/events.rb",
      "lib/event_horizon/helpers.rb",
