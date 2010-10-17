@@ -11,11 +11,11 @@ module EventHorizonHelper
           end
     if key.is_a? Array
       day = I18n.t("date.day_names")[key.last]
-      "#{day}, #{l date, :format => :short}"
+      "#{day}, #{I18n.l(date, :format => :short)}"
     elsif key
       key && I18n.t("helpers.relativize_date.#{key}")
     else
-      l date, :format => :short
+      I18n.l(date, :format => :short)
     end
   end
 
@@ -27,6 +27,7 @@ module EventHorizonHelper
 
   def event_interpolations(event)
     interpolations = event.params.inject({}) { |h, (k, v)| h[k.to_sym] = v; h }
+    interpolations[:user] = event.user.to_s
     if interpolations[:name] && event.document.present?
       method = :"link_to_#{event.document_type.downcase}"
       interpolations[:name] = send(method, event.document) if respond_to?(method)
