@@ -10,10 +10,10 @@ module EventHorizonHelper
           when ago..Date.today; [:days, date.wday]
           end
     if key.is_a? Array
-      day = t("date.day_names")[key.last]
+      day = I18n.t("date.day_names")[key.last]
       "#{day}, #{l date, :format => :short}"
     elsif key
-      key && t("helpers.dashboards.relativize_date.#{key}")
+      key && I18n.t("helpers.relativize_date.#{key}")
     else
       l date, :format => :short
     end
@@ -22,7 +22,7 @@ module EventHorizonHelper
   def event_description(event)
     scope          = "#{event.document_type.tableize.singularize}.#{event.event_type}"
     interpolations = event_interpolations(event)
-    t("helpers.dashboards.event_description.#{scope}", interpolations).html_safe
+    I18n.t("helpers.event_description.#{scope}", interpolations).html_safe
   end
 
   def event_interpolations(event)
