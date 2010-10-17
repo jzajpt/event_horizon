@@ -23,7 +23,7 @@ module EventHorizon
       end
 
       def event_callbacks_for(event)
-        @event_callbacks[event]
+        @event_callbacks && @event_callbacks[event]
       end
 
     end
